@@ -1,0 +1,9 @@
+[submodule "shared-packages/fx-common"]
+	path = shared-packages/fx-common
+	url = https://github.com/water102/fx-common.git
+[submodule "shared-packages/fx-web"]
+	path = shared-packages/fx-web
+	url = https://github.com/water102/fx-web.git
+[submodule "shared-packages/fx-react"]
+	path = shared-packages/fx-react
+	url = https://github.com/water102/fx-react.git

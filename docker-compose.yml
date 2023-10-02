@@ -1,0 +1,60 @@
+version: "3.8"
+
+services:
+  #db_sync:
+  #  container_name: launchpad_uat_db_sync
+  #  restart: always
+  #  build:
+  #    context: ./launchpad_db_sync
+  #    dockerfile: Dockerfile
+  #  env_file: ./launchpad_db_sync/.env
+  #  command: flyway migrate
+
+  be:
+    container_name: launchpad_uat_be
+    restart: always
+    build:
+       context: ./launchpad_be
+       dockerfile: Dockerfile
+    env_file: ./launchpad_be/.env
+    networks:
+      - uat_networks
+    ports:
+      - "3004:3000"
+    links:
+      - redis
+    depends_on:
+      - redis
+
+  #fe:
+  #  container_name: launchpad_uat_fe
+  #  restart: always
+  #  build:
+  #    context: ./launchpad_fe
+  #    dockerfile: Dockerfile
+  #  env_file: ./launchpad_fe/.env
+  #  ports:
+   #    - "3005:80"
+
+  #admin:
+  #  container_name: launchpad_uat_admin
+  #  restart: always
+  #  build:
+  #    context: ./launchpad_admin
+  #    dockerfile: Dockerfile
+  #  env_file: ./launchpad_admin/.env
+  #  ports:
+  #    - "3006:80"
+
+  redis:
+    container_name: launchpad_uat_redis
+    restart: always
+    image: redis:latest
+    networks:
+      - uat_networks
+    ports:
+      - "6378:6379"
+
+networks:
+  uat_networks:
+    driver: bridge
