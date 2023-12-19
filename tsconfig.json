@@ -9,12 +9,12 @@
     {
       "path": "./shared-packages/fx-react"
     },
-    {
-      "path": "./shared-packages/fx-angular"
-    },
-    {
-      "path": "./starter-kit-templates"
-    },
+    // {
+    //   "path": "./shared-packages/fx-angular"
+    // },
+    // {
+    //   "path": "./starter-kit-templates"
+    // },
     {
       "path": "./shared-packages/viec-tu-chon-common"
     }
